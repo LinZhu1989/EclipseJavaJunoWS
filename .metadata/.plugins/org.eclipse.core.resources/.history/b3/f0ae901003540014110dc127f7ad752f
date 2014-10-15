@@ -1,0 +1,12 @@
+package runHelper;
+
+import javax.swing.JFrame;
+import HelperUI;
+public class RunHelper {
+	public static void main(String arg[]) {
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		HelperUI frm = new HelperUI();
+
+		
+	}
+}

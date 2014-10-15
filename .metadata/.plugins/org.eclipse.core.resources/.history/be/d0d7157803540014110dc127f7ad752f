@@ -1,0 +1,6 @@
+package helperUI;
+
+public enum UserSelection {
+
+	ADDCONNECTION, ENDORSING, DEFAULT
+}

@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Oct 13 00:24:34 EDT 2014
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=LinZhu_LinkedInHelper.jar
+manifest.mergeall=true
+manifest.mainclass=gui.HelperUI
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

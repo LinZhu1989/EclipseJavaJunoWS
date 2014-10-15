@@ -1,0 +1,5 @@
+package gui;
+
+public enum BrowserType {
+	FIREFOX,CHROME, DEFAULT
+}

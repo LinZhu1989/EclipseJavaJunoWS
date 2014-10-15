@@ -1,0 +1,10 @@
+INDEX VERSION 1.126+E:\MyWorkspace\EclipseJavaJunoWS\.metadata\.plugins\org.eclipse.jdt.core
+4264688769.index
+2362741630.index
+2283205128.index
+628740106.index
+3283989295.index
+1569271303.index
+449986760.index
+2789243126.index
+2328269416.index

@@ -1,0 +1,7 @@
+package helperUI;
+
+public enum MessageType {
+	
+	ABOUT,HELP,GUIDE
+
+}

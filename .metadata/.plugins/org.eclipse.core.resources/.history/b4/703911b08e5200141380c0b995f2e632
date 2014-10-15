@@ -1,0 +1,200 @@
+package gui;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+
+import myComp.MyLabel;
+
+public class MessageUI extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
+	private MessageType type;
+	private MyLabel lblTitle, lblInfo, lblInfo2;
+	private GridBagLayout gb;
+	private GridBagConstraints gbc;
+	private Color colorTitle;
+	private Color colorLabel;
+	private Color colorLabel2;
+	private Font fontTitle;
+	private Font fontLabelM;
+	private Font fontLabelS;
+	private Font fontLabelXS;
+	private Dimension sizeDefault;
+	private Dimension sizeLabel1;
+	private Dimension sizeLabel2;
+	private Dimension sizeSmall;
+	private JScrollPane sp;
+
+	public MessageUI(MessageType msgType) {
+
+		if (msgType.equals(MessageType.GUIDE)) {
+			setLables(msgType);
+
+		} else {
+
+			type = msgType;
+			gb = new GridBagLayout();
+			gbc = new GridBagConstraints();
+			this.setBackground(new Color(193, 205, 205));
+			this.setLayout(gb);
+
+			setTitle(type);
+			setSize(type);
+			setLables(type);
+
+			this.pack();
+			this.setVisible(true);
+			this.setResizable(false);
+			this.setLocationRelativeTo(null);
+			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+		}
+
+		this.setLocationRelativeTo(null);
+	}
+
+	private void setLables(MessageType t) {
+
+		colorTitle = new Color(255, 127, 36);
+		colorLabel = new Color(84, 84, 84);
+		colorLabel2 = Color.BLACK;
+
+		fontTitle = new java.awt.Font("Dialog", 1, 24);
+		fontLabelM = new java.awt.Font("Dialog", 1, 22);
+		fontLabelS = new java.awt.Font("Dialog", 1, 18);
+
+		fontLabelXS = new java.awt.Font("Dialog", 1, 14);
+
+		sizeDefault = new Dimension(600, 50);
+		sizeLabel1 = new Dimension(600, 30);
+		sizeLabel2 = new Dimension(600, 150);
+
+		// sizeSmall = new Dimension(120, 40);
+
+		if (t.equals(MessageType.ABOUT)) {
+			lblTitle = new MyLabel("LinkedIn Automatic Helper",
+					SwingConstants.CENTER);
+			lblTitle.customSetting(fontTitle, sizeDefault, colorTitle);
+			lblInfo = new MyLabel("Version: Release (1.0.0)",
+					SwingConstants.CENTER);
+			lblInfo.customSetting(fontLabelM, sizeLabel1, colorLabel);
+			lblInfo2 = new MyLabel(
+					"<html>(c) Copyright Lin Zhu, 2014.  All rights reserved.<br>Please contact tracyjuly0706@gmail.com if there is any bugs.<br><br> To know more about the author, please check http://linzhu1989.netau.net/Home/ </html>",
+					SwingConstants.CENTER);
+			lblInfo2.customSetting(fontLabelS, sizeLabel2, colorLabel2);
+
+			gbc.insets = new Insets(3, 1, 10, 10);
+
+			gbc.fill = GridBagConstraints.BOTH;
+			gbc.gridwidth = 0;
+			gbc.weighty = 0;
+			addComp(lblTitle);
+			addComp(lblInfo);
+			addComp(lblInfo2);
+
+		} else if (t.equals(MessageType.HELP)) {
+			lblTitle = new MyLabel("LinkedIn Automatic Helper",
+					SwingConstants.CENTER);
+			lblTitle.customSetting(fontTitle, sizeDefault, colorTitle);
+			lblInfo = new MyLabel("----Make your LinkedIn profile better!",
+					SwingConstants.CENTER);
+			lblInfo.customSetting(fontLabelM, sizeLabel1, colorLabel);
+			lblInfo2 = new MyLabel(
+					"<html>This helper can help you automatically do some operations in your LinkedIn profile. The operations can be either adding connections or endorsing your connections.<br><br>Adding connection is try to add the people you may know in your network.<br>Endorsing is to help you endorse your connections/friends with their skills.</html>",
+					SwingConstants.CENTER);
+			lblInfo2.customSetting(fontLabelXS, sizeLabel2, colorLabel2);
+
+			gbc.insets = new Insets(3, 1, 10, 10);
+
+			gbc.fill = GridBagConstraints.BOTH;
+			gbc.gridwidth = 0;
+			gbc.weighty = 0;
+			addComp(lblTitle);
+			addComp(lblInfo);
+			addComp(lblInfo2);
+		} else if (t.equals(MessageType.GUIDE)) {
+
+			this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+			JLabel label = new JLabel(
+					"<html>LinkedIn Helper Common Question & Answers<br>=======================================<br><br>Q: Which browser is supported by the helper?<br>"
+							+ "A: Now it only works for Firefox. Chrome support is coming soon.<br><br>"
+							+ "Q: Can I run this helper in Mac?<br>"
+							+ "A: No. Is is now only can be run in Windows System. Selenium server works in a different way in Mac, system dissimilarity will be handled soon.<br><br>"
+							+ "Q: Can I use this helper for other website?<br>"
+							+ "A: No. Now it only works for linkedIn, all the functions are made for it.<br><br>"
+							+ "Q: Is it hard to use this helper?<br>"
+							+ "A: No, it is very easy. You can simply follow these steps.<br><br> &nbsp&nbsp&nbsp&nbsp 1. Type your LinkedIn Account Name;(An email address)<br> &nbsp&nbsp&nbsp&nbsp 2. Type your Password for the account;<br>&nbsp&nbsp&nbsp&nbsp(We will use but not save your password.)"
+							+ "<br> &nbsp&nbsp&nbsp&nbsp 3. Select the operation you want to perform;<br> &nbsp&nbsp&nbsp&nbsp 4. Type the number of operations you want to have;<br>&nbsp&nbsp&nbsp&nbsp(eg. 10 means adding 10 connections or endorsing 10 people.)"
+							+ "<br> &nbsp&nbsp&nbsp&nbsp 5. Run the selenium server. It will run automatically after you selecting the file<br> &nbsp&nbsp&nbsp&nbsp selenium-server-standalone-2.43.1.jar;<br>&nbsp&nbsp&nbsp&nbsp (Remember: All the file must in the same folder.)"
+							+ "<br> &nbsp&nbsp&nbsp&nbsp 6. Find your Browser.exe file to lacate the path of your browser;(eg. firefox.exe)<br>&nbsp&nbsp&nbsp&nbsp (Now only firefox browser is supported.)"
+							+ "<br> &nbsp&nbsp&nbsp&nbsp 7. Click OK. You will be asked to check all your input;"
+							+ "<br> &nbsp&nbsp&nbsp&nbsp 8. Click Run, then the helper will run automatically.<br><br>"
+							+ "Q: What will casue error and helper crash?<br>"
+							+ "A: Any error input will make helper not work. Wrong account name, incorrect password lead to log in failure."
+							+ "The helper will also not work if you have not run the server or found the right browser exe file. Meanwhile, a bad network"
+							+ " will make the helper not work well, since the techniques used in the helper depend on the performance of the network a lot.<br><br>"
+							+ "Please contact tracyjuly0706@gmail.com if you have more questions or there is any bug.Thank you.</html>");
+			label.setPreferredSize(new Dimension(550, 1500));
+			label.setFont(new java.awt.Font("Dialog", 1, 21));
+
+			JScrollPane jScrollPane = new JScrollPane(label);
+			this.setTitle("LinkedIn Helper Common Question & Answers");
+			this.add(jScrollPane, BorderLayout.CENTER);
+			this.setSize(600, 500);
+			this.setVisible(true);
+
+		} else {
+			this.setTitle(" ");
+		}
+
+	}
+
+	public void addComp(Component button) {
+		gb.setConstraints(button, gbc);
+		this.add(button);
+	}
+
+	private void setTitle(MessageType t) {
+		if (t.equals(MessageType.ABOUT)) {
+			this.setTitle("ABOUT");
+		} else if (t.equals(MessageType.HELP)) {
+			this.setTitle("HELP");
+		} else if (t.equals(MessageType.GUIDE)) {
+			this.setTitle("GUIDE");
+		} else {
+			this.setTitle(" ");
+		}
+
+	}
+
+	private void setSize(MessageType t) {
+		if (t.equals(MessageType.ABOUT)) {
+			this.setSize(600, 300);
+		} else if (t.equals(MessageType.HELP)) {
+			this.setSize(600, 400);
+		} else if (t.equals(MessageType.GUIDE)) {
+			this.setSize(600, 400);
+		} else {
+			this.setSize(100, 100);
+		}
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+
+	}
+}

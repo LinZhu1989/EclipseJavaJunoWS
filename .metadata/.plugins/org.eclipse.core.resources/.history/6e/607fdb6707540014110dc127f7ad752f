@@ -1,0 +1,577 @@
+package helperUI;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+import linkedInHelper.LinkedInHelper;
+import myComponents.MyButton;
+import myComponents.MyLabel;
+import myComponents.MyWriter;
+import utility.BrowserType;
+import utility.MessageType;
+import utility.UserSelection;
+
+@SuppressWarnings("serial")
+public class HelperUI extends JFrame implements ActionListener {
+
+	private GridBagLayout gb;
+	private GridBagConstraints gbc;
+	private JPanel jp;
+
+	private MyLabel lbl_title, lbl_blank, lbl_name, lbl_pin, lbl_number, 
+			lbl_nameInfo, lbl_pinInfo, lbl_numberInfo, lbl_serverInfo, lbl_browserInfo, lbl_selectInfo;
+	private MyButton btn_about, btn_info, btn_guide, btn_addCon, btn_endorse,
+			btn_server, btn_browser, btn_OK, btn_reset, btn_go;
+	private JTextField txtName, txtNum;
+	private JPasswordField txtPIN;
+	private UserSelection userChoice;
+	private BrowserType browser;
+	private String browserLocation;
+	private boolean ifServerRun;
+	private boolean ifCanRun;
+
+	private java.awt.Font font_title, font_labelM, font_labelS, font_labelXS,
+			font_buttonM, font_buttonS, font_buttonL;
+	private Color color_title, color_label, colorLabel2,
+			colorWarning, colorDisable, colorTxt;
+	private Dimension sizeDefault, sizeTxt, sizeWider, sizeXWider, sizeSmall;
+
+	private MyWriter systemLogWriter, userLogWriter;
+
+	public HelperUI() {
+
+		this.setTitle("Lin Zhu LinkedIn Automatic Helper");
+		jp = (JPanel) this.getContentPane();
+		gb = new GridBagLayout();
+
+		gbc = new GridBagConstraints();
+		jp.setBackground(new Color(24, 116, 205));
+		jp.setLayout(gb);
+		// jp.setLayout(new GridLayout(7, 3, 15, 15));
+		iniComp();
+		setComp();
+		addAllComp(jp);
+		
+		this.pack();
+		// frm.setSize(1200, 600);
+		this.setVisible(true);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	private void addAllComp(JPanel jp) {
+
+		gbc.insets = new Insets(10, 10, 10, 10);
+
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.gridwidth = 0;
+		gbc.weighty = 0;
+		addComp(lbl_title);
+
+		gbc.gridwidth = 2;
+		addComp(lbl_blank);
+		gbc.gridwidth = 1;
+		addComp(btn_about);
+		addComp(btn_info);
+
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		addComp(btn_guide);
+		// addComp(lblInfo);
+
+		gbc.gridwidth = 1;
+		addComp(lbl_name);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		addComp(txtName);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		addComp(lbl_nameInfo);
+
+		gbc.gridwidth = 1;
+		addComp(lbl_pin);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		addComp(txtPIN);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		addComp(lbl_pinInfo);
+
+		gbc.gridwidth = 1;
+		addComp(btn_addCon);
+		addComp(btn_endorse);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		addComp(lbl_selectInfo);
+
+		gbc.gridwidth = 1;
+		addComp(lbl_number);
+		gbc.fill = GridBagConstraints.HORIZONTAL;
+		addComp(txtNum);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		addComp(lbl_numberInfo);
+
+		gbc.gridwidth = 1;
+		addComp(btn_server);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		addComp(lbl_serverInfo);
+
+		gbc.gridwidth = 1;
+		addComp(btn_browser);
+
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		addComp(lbl_browserInfo);
+		// addComp(lbl5info2);
+
+		gbc.gridwidth = 1;
+		addComp(btn_OK);
+		addComp(btn_reset);
+		gbc.gridwidth = GridBagConstraints.REMAINDER;
+		addComp(btn_go);
+
+		btn_about.addActionListener(this);
+		btn_info.addActionListener(this);
+		btn_guide.addActionListener(this);
+		btn_addCon.addActionListener(this);
+		btn_endorse.addActionListener(this);
+		btn_server.addActionListener(this);
+		btn_browser.addActionListener(this);
+		btn_OK.addActionListener(this);
+		btn_reset.addActionListener(this);
+		btn_go.addActionListener(this);
+	}
+
+	private void setComp() {
+
+		colorDefault = Color.BLACK;
+		color_title = new Color(255, 127, 36);
+		color_label = new Color(84, 84, 84);
+		colorLabel2 = new Color(99, 184, 255);
+		colorOK = Color.GREEN;
+		colorWarning = Color.RED;
+		colorDisable = Color.GRAY;
+		colorTxt = new Color(159, 182, 205);
+		font_title = new java.awt.Font("Dialog", 1, 45);
+		font_labelM = new java.awt.Font("Dialog", 1, 26);
+		font_labelS = new java.awt.Font("Dialog", 1, 17);
+		font_labelXS = new java.awt.Font("Dialog", 1, 14);
+		font_buttonM = new java.awt.Font("Dialog", 1, 22);
+		font_buttonL = new java.awt.Font("Dialog", 1, 31);
+		font_buttonS = new java.awt.Font("Dialog", 1, 18);
+
+		sizeDefault = new Dimension(300, 50);
+		sizeTxt = new Dimension(300, 25);
+		sizeWider = new Dimension(400, 50);
+		sizeXWider = new Dimension(680, 50);
+		sizeSmall = new Dimension(120, 25);
+
+		btn_about.customSetting(font_buttonS, sizeSmall, null);
+		btn_info.customSetting(font_buttonS, sizeSmall, null);
+		btn_guide.customSetting(font_buttonS, sizeSmall, null);
+		btn_addCon.customSetting(font_buttonM, sizeDefault, null);
+		btn_endorse.customSetting(font_buttonM, sizeDefault, null);
+		btn_server.customSetting(font_buttonM, sizeDefault, null);
+		btn_browser.customSetting(font_buttonM, sizeDefault, null);
+		btn_OK.customSetting(font_buttonL, sizeDefault, null);
+		btn_reset.customSetting(font_buttonL, sizeDefault, null);
+		btn_go.customSetting(font_buttonL, sizeDefault, null);
+		btn_OK.setForeground(colorWarning);
+		btn_go.setForeground(colorDisable);
+
+		lbl_title.customSetting(font_title, sizeDefault, color_title);
+		lbl_name.customSetting(font_labelM, sizeDefault, color_label);
+		lbl_pin.customSetting(font_labelM, sizeDefault, color_label);
+		lbl_number.customSetting(font_labelM, sizeDefault, color_label);
+		lbl_nameInfo.customSetting(font_labelS, sizeWider, colorLabel2);
+		lbl_pinInfo.customSetting(font_labelS, sizeWider, colorLabel2);
+		lbl_selectInfo.customSetting(font_labelS, sizeWider, colorLabel2);
+		lbl_numberInfo.customSetting(font_labelS, sizeWider, colorLabel2);
+		lbl_serverInfo.customSetting(font_labelXS, sizeXWider, colorLabel2);
+		lbl_browserInfo.customSetting(font_labelXS, sizeXWider, colorLabel2);
+
+		txtName.setPreferredSize(sizeTxt);
+		txtNum.setPreferredSize(sizeTxt);
+		txtPIN.setPreferredSize(sizeTxt);
+
+		txtName.setBackground(colorTxt);
+		txtNum.setBackground(colorTxt);
+		txtPIN.setBackground(colorTxt);
+
+		txtName.setHorizontalAlignment(JTextField.CENTER);
+		txtNum.setHorizontalAlignment(JTextField.CENTER);
+		txtPIN.setHorizontalAlignment(JTextField.CENTER);
+
+	}
+
+	private void iniComp() {
+
+		systemLogWriter = new MyWriter(true);
+		userLogWriter = new MyWriter(false);
+
+		lbl_title = new MyLabel("LinkedIn Automatic Helper",
+				SwingConstants.CENTER);
+		lbl_blank = new MyLabel("", SwingConstants.RIGHT);
+		btn_about = new MyButton("About", 1);
+		btn_info = new MyButton("Help", 1);
+		btn_guide = new MyButton("Q&A", 1);
+		lbl_name = new MyLabel("Account Username", SwingConstants.CENTER);
+		lbl_pin = new MyLabel("Account Password", SwingConstants.CENTER);
+		lbl_number = new MyLabel("Number of Action", SwingConstants.CENTER);
+
+		btn_addCon = new MyButton("Add Connection", 2);
+		btn_endorse = new MyButton("Endorse Connections", 2);
+
+		lbl_nameInfo = new MyLabel(
+				"<HTML>Please type the email address you registerd for your LinkedIn Account.</html>");
+		lbl_pinInfo = new MyLabel(
+				"<HTML>Please type the password of your account. <br>Your password will be used but not saved.</html>");
+		lbl_selectInfo = new MyLabel(
+				"<HTML>Please select what you want to perform, adding connections or endorsing.</html>");
+		lbl_numberInfo = new MyLabel(
+				"<HTML>Please type the totol number of actions you want, either for adding connections or endorsing.</html>");
+		lbl_serverInfo = new MyLabel(
+				"<HTML>Please run the selenium server by locating the path of file selenium-server-standalone-2.43.1.jar. Make sure all the files (including the selenium****.jar and linkedInHelper.jar)are in the same level.</html>");
+		lbl_browserInfo = new MyLabel(
+				"<HTML>Please find your Browser.exe file to lacate the path of your browser.(eg. firefox.exe) <br>Now only firefox browser is supported. Chrome support is coming soon!</html>");
+
+		txtName = new JTextField(15);
+		txtPIN = new JPasswordField();
+		txtNum = new JTextField(15);
+		userChoice = UserSelection.DEFAULT;
+		browser = BrowserType.DEFAULT;
+
+		btn_server = new MyButton("Run Server", 2);
+		btn_browser = new MyButton("Select Browser", 2);
+		btn_OK = new MyButton("OK", 0);
+		btn_reset = new MyButton("Reset", 0);
+		btn_go = new MyButton("Run App", 0);
+
+		ifCanRun = false;
+		ifServerRun = false;
+	}
+
+	public void addComp(Component button) {
+		gb.setConstraints(button, gbc);
+		jp.add(button);
+	}
+
+	public void actionPerformed(ActionEvent ae) {
+
+		if (ae.getSource() == btn_about) {
+			try {
+				
+				MessageUI aboutMsg = new MessageUI(MessageType.ABOUT);
+				
+			} catch (Exception e) {
+			}
+
+		}
+
+		if (ae.getSource() == btn_info) {
+			try {
+				MessageUI aboutMsg = new MessageUI(MessageType.HELP);
+			} catch (Exception e) {
+			}
+
+		}
+
+		if (ae.getSource() == btn_guide) {
+			try {
+				
+				MessageUI frame = new MessageUI(MessageType.GUIDE);
+				
+				//MessageUI aboutMsg = new MessageUI(MessageType.GUIDE);
+			} catch (Exception e) {
+			}
+
+		}
+
+		if (ae.getSource() == btn_OK) {
+			systemLogWriter.write("User Click OK");
+			if (checkValues()) {
+				JOptionPane
+						.showMessageDialog(
+								null,
+								"<HTML>Please check all the information you typed,please click 'Run App' to if there is no error.</HTML>");
+				ifCanRun = true;
+				btn_OK.setForeground(Color.WHITE);
+				btn_go.setForeground(Color.RED);
+				systemLogWriter.write("[OK] All information are provided.");
+			} else {
+				showErrors();
+				JOptionPane.showMessageDialog(null,
+						"Please check your input, error details are shown.");
+				systemLogWriter
+						.write("[ERROR] More information are need to provide. Or there is any mistake.");
+			}
+		}
+
+		if (ae.getSource() == btn_addCon) {
+			systemLogWriter.write("User Click ADD CONNECTION");
+			btn_addCon.onClick();
+			btn_endorse.offClick();
+			userChoice = UserSelection.ADDCONNECTION;
+		}
+
+		if (ae.getSource() == btn_endorse) {
+			systemLogWriter.write("User Click ENDORSING");
+			btn_endorse.onClick();
+			btn_addCon.offClick();
+			userChoice = UserSelection.ENDORSING;
+		}
+
+		if (ae.getSource() == btn_server) {
+			systemLogWriter.write("User Click run Server");
+			JFileChooser choose = new JFileChooser();
+			int result = choose.showOpenDialog(this);
+			if (result == 0) {
+				try {
+					File file = choose.getSelectedFile();
+					RunServerBat server = new RunServerBat(file.getPath());
+					server.runServer();
+					systemLogWriter.write("[OK] Server starts to run.");
+					ifServerRun = true;
+				} catch (Exception ee) {
+					systemLogWriter.write("[ERROR] Fail to start the server.");
+					ee.printStackTrace();
+				}
+			}
+
+		}
+
+		if (ae.getSource() == btn_browser) {
+			systemLogWriter.write("User click select browser.");
+			JFileChooser choose = new JFileChooser();
+			int result = choose.showOpenDialog(this);
+			if (result == 0) {
+				try {
+					File file = choose.getSelectedFile();
+					String[] s = file.getPath().split("\\\\");
+					browserLocation = "";
+					for (int i = 0; i < s.length; i++) {
+						browserLocation += s[i];
+						if (i < s.length - 1) {
+							browserLocation += "/";
+						}
+					}
+					systemLogWriter.write(s[s.length - 1]);
+					if (s[s.length - 1].toUpperCase().startsWith(
+							BrowserType.FIREFOX.toString().toUpperCase())) {
+						systemLogWriter.write("User select FIREFOX.");
+						browser = BrowserType.FIREFOX;
+					} else {
+
+					}
+					lbl_browserInfo.setText("<HTML>The path of your browser you selected is:"
+							+ browserLocation
+							+ "<br>You use browser:"
+							+ browser.toString() + "</html>");
+
+				} catch (Exception ee) {
+					ee.printStackTrace();
+				}
+			}
+
+		}
+
+		if (ae.getSource() == btn_reset) {
+			systemLogWriter
+					.write("User click Reset, all the information are reset to default.");
+			txtName.setText("");
+			txtPIN.setText("");
+			txtNum.setText("");
+			userChoice = UserSelection.DEFAULT;
+			lbl_nameInfo.toDefaultColor();
+			lbl_pinInfo.toDefaultColor();
+			lbl_selectInfo.toDefaultColor();
+			lbl_numberInfo.toDefaultColor();
+			lbl_serverInfo.toDefaultColor();
+			lbl_browserInfo.toDefaultColor();
+			lbl_nameInfo.setText("<HTML>Please type the email address you registerd for your LinkedIn Account.</html>");
+			lbl_pinInfo.setText("<HTML>Please type the password of your account. <br>Your password will be used but not saved.</html>>");
+			lbl_selectInfo
+					.setText("<HTML>Please select what you want to do, adding connections or endorsing.</html>");
+			lbl_numberInfo.setText("<HTML>Please type the totol number of actions you want, either for adding connections or endorsing.</html>");
+			lbl_serverInfo.setText("<HTML>Please run the selenium server by locating the path of file selenium-server-standalone-2.43.1.jar. Make sure all the files (including the selenium****.jar and linkedInHelper.jar)are in the same level.</html>");
+			lbl_browserInfo.setText("<HTML><HTML>Please find your Browser.exe file to lacate the path of your browser.(eg. firefox.exe) <br>Now only firefox browser is supported. Chrome support is coming soon!");
+			ifCanRun = false;
+			btn_OK.setForeground(Color.RED);
+			btn_go.setForeground(Color.WHITE);
+			btn_addCon.offClick();
+			btn_endorse.offClick();
+
+			JOptionPane.showMessageDialog(null,
+					"Please type all the information required.");
+		}
+
+		if (ae.getSource() == btn_go) {
+			systemLogWriter.write("User Click Run App");
+			if (ifCanRun) {
+				JOptionPane
+						.showMessageDialog(
+								null,
+								"<html>Now the app starts, failure can be caused by any reason including wrong account name, password or any browser problem. <br> Please contact the app developer Lin Zhu by email(tracyjuly0706@gmail.com) if there is any unhandled bugs, thank you.</html>");
+				runApp();
+			} else {
+				JOptionPane
+						.showMessageDialog(
+								null,
+								"You are not allowed to run app now, please complete all the information all click 'OK' to confirm first.");
+			}
+		}
+
+	}
+
+	private void runApp() {
+		systemLogWriter.write("Start to run the LinkedIn Helper.");
+		LinkedInHelper linkedin = new LinkedInHelper(txtName.getText(), new String(
+				txtPIN.getPassword()), "https://www.linkedin.com", browser
+				.toString().toLowerCase(), browserLocation, 4444,
+				Integer.parseInt(txtNum.getText()), userChoice, userLogWriter);
+
+		try {
+			linkedin.runTool();
+		} catch (Exception e) {
+			JOptionPane
+					.showMessageDialog(null,
+							"Please check if you have started your Selenium Server on localhost:4444.");
+		}
+
+	}
+
+	private void showErrors() {
+
+		// System.out.print("Error!");
+	}
+
+	private boolean checkValues() {
+
+		boolean result = true;
+		String emailReg = "[\\w]+@[\\w]+.[\\w]+";
+
+		// Check account name field
+		if (txtName.getText() == null) {
+			lbl_nameInfo.setText("Sorry, you did not type your account name!");
+			showWarningColor(lbl_nameInfo, true);
+			result = false;
+		} else if (!txtName.getText().matches(emailReg)) {
+			lbl_nameInfo.setText("Please check your email address!");
+			showWarningColor(lbl_nameInfo, true);
+			result = false;
+		} else {
+			showWarningColor(lbl_nameInfo, false);
+			lbl_nameInfo.setText("<HTML>[OK!] The email address you typed is "
+					+ txtName.getText() + "</HTML>");
+
+		}
+
+		// Check user password field
+		if (txtPIN == null) {
+			lbl_pinInfo.setText("Sorry, you did not type your password!");
+			showWarningColor(lbl_pinInfo, true);
+			result = false;
+		} else if (txtPIN.getPassword().length == 0) {
+			showWarningColor(lbl_pinInfo, true);
+			lbl_pinInfo.setText("Sorry, you did not type your password!");
+			result = false;
+		} else {
+			showWarningColor(lbl_pinInfo, false);
+			lbl_pinInfo.setText("<HTML>[OK!] The password you typed contains "
+					+ txtPIN.getPassword().length + " digits, starting with '"
+					+ txtPIN.getPassword()[0] + "'.<HTML>");
+		}
+
+		// Check the total number user typed
+
+		if (txtNum.getText() == null) {
+			lbl_numberInfo.setText("Please type the total number!");
+			showWarningColor(lbl_numberInfo, true);
+			result = false;
+		} else {
+
+			try {
+				int number = Integer.parseInt(txtNum.getText());
+				if (number < 0) {
+					lbl_numberInfo.setText("Please type a positive total number!");
+					showWarningColor(lbl_numberInfo, true);
+					result = false;
+				} else {
+					lbl_numberInfo.setText("<HTML>[OK!] The total number you enter is "
+							+ number + "</HTML>");
+					showWarningColor(lbl_numberInfo, false);
+				}
+			} catch (NumberFormatException e) {
+				lbl_numberInfo.setText("Please type an integer.");
+				showWarningColor(lbl_numberInfo, true);
+				result = false;
+			}
+		}
+
+		// Check user selection
+		if (userChoice == UserSelection.DEFAULT) {
+			lbl_selectInfo.setText("Sorry, you did not choose what you want!");
+			showWarningColor(lbl_selectInfo, true);
+			result = false;
+		} else {
+			lbl_selectInfo.setText("<HTML>[OK!] You have selected " + userChoice
+					+ ".</HTML>");
+			showWarningColor(lbl_selectInfo, false);
+		}
+
+		// Check browser information
+		if (browserLocation == null) {
+			lbl_browserInfo.setText("Sorry, you did not locate the browser file.");
+			showWarningColor(lbl_browserInfo, true);
+			result = false;
+		} else if (browserLocation.length() < 1) {
+			lbl_browserInfo.setText("Sorry, you did not locate the browser file.");
+			showWarningColor(lbl_browserInfo, true);
+			result = false;
+		} else if (!browser.equals(BrowserType.FIREFOX)) {
+			lbl_browserInfo.setText("Only Firefox Browser is supported, sorry.");
+			showWarningColor(lbl_browserInfo, false);
+		}
+		{
+			lbl_browserInfo.setText("<HTML>[OK!] The path of browser is"
+					+ browserLocation + ".</HTML>");
+			showWarningColor(lbl_browserInfo, false);
+		}
+
+		// Check server status
+		if (!ifServerRun) {
+			lbl_serverInfo.setText("Sorry, you have not run the selenium server!");
+			showWarningColor(lbl_serverInfo, true);
+			result = false;
+		} else {
+			lbl_serverInfo.setText("<HTML>[OK!] The server has been run! Please run it again if you close the server manually. Because shut-down operation will not be detected.</HTML>");
+			showWarningColor(lbl_serverInfo, false);
+		}
+
+		return result;
+	}
+
+	private void showWarningColor(Component c, boolean b) {
+
+		if (b) {
+			c.setForeground(Color.RED);
+		} else {
+			c.setForeground(Color.GREEN);
+		}
+
+	}
+
+
+}
