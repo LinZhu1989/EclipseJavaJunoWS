@@ -1,0 +1,80 @@
+package myJobDB;
+
+public class Jobs {// 内部类，其字段对应用来存放、提取数据库中的数据
+
+	private int id;
+	private String data = "";
+	private String title = "";
+	private String company = "";
+	private String website = "";
+	private String description = "";
+	private String attachment = "";
+	private String status = "";
+
+	// 通过set方法，往类的实例里“存放”数据
+	// 通过get方法，从类的实例里“获得”数据，然后再通过插入数据库
+	public void setId(int jobid) {
+		this.id = jobid;
+	}
+
+	public void setData(String jobdata) {
+		this.data = jobdata;
+	}
+	
+	public void setTitle(String jobtitle) {
+		this.title = jobtitle;
+	}
+	
+	public void setCompany(String jobcompany) {
+		this.company = jobcompany;
+	}
+	
+	public void setWebsite(String jobwebsite) {
+		this.website = jobwebsite;
+	}
+	
+	public void setDescription(String jobdescription) {
+		this.description = jobdescription;
+	}
+	
+	public void setAttachment(String jobattachment) {
+		this.attachment = jobattachment;
+	}
+	
+	public void setStatus(String jobstatus) {
+		this.status = jobstatus;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public String getData() {
+		return data;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public String getCompany() {
+		return company;
+	}
+	
+	public String getWebsite() {
+		return website;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public String getAttachment() {
+		return attachment;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+}

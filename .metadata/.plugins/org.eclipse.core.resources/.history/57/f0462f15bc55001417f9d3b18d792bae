@@ -1,0 +1,134 @@
+package myJobDB;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import main.CommonData;
+
+public class JobDatabaseManager {
+
+	private Connection conn;
+	private String insql;
+	private String upsql;
+	private String delsql;
+	private String sql = "select * from user";
+	private String name;
+	private DatabaseLogWriter logger;
+	private ResultSet rs = null;
+
+	public JobDatabaseManager() {
+		logger=new DatabaseLogWriter("Job");
+	}
+
+	public Connection ConnectMysql() {
+		try {
+			Class.forName(CommonData.connect_drivename);
+			conn = DriverManager.getConnection(CommonData.connect_url,
+					CommonData.connect_name, CommonData.connect_password);
+			if (!conn.isClosed()) {
+				logger.appendWrite("Succeeded connecting to the Database!");
+			} else {
+				logger.appendWrite("Falled connecting to the Database!");
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return conn;
+	}
+
+	public void CutConnection(Connection conn) throws SQLException {
+		try {
+			if (rs != null)
+				;
+			if (conn != null)
+				;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			rs.close();
+			conn.close();
+		}
+	}
+
+	
+	
+	// 插入、删除、更新的方法是一样的，不一样的是数据库参数
+	public boolean InsertSql(Jobs data) {
+		try {
+
+			insql = "insert into linzhu1989.jobs(id,data,title,company,website,description,attachment,status) values(?,?,?,?,?,?,?,?)";
+			PreparedStatement ps = conn.prepareStatement(insql);
+			ps.setInt(1, data.getId());
+			ps.setString(2, data.getData());
+			ps.setString(3, data.getTitle());
+			ps.setString(4, data.getCompany());
+			ps.setString(5, data.getWebsite());
+			ps.setString(6, data.getDescription());
+			ps.setString(7, data.getAttachment());
+			ps.setString(8, data.getStatus());
+			int result = ps.executeUpdate();
+			
+			if (result > 0){
+				logger.appendWrite("Successfully insert");
+				return true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	// 与其他操作相比较，查询语句在查询后需要一个查询结果集（ResultSet）来保存查询结果
+	public void SelectSql(String sql) {
+		try {
+			Statement statement = conn.createStatement();
+			rs = statement.executeQuery(sql);
+			while (rs.next()) {
+				name = rs.getString("username");
+				System.out.println(rs.getString("userid") + name
+						+ rs.getString("email"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public boolean UpdateSql(String upsql) {
+		try {
+			PreparedStatement ps = conn.prepareStatement(upsql);
+			int result = ps.executeUpdate();// 返回行数或者0
+			if (result > 0)
+				return true;
+		} catch (SQLException ex) {
+			Logger.getLogger(JobDatabaseManager.class.getName()).log(
+					Level.SEVERE, null, ex);
+		}
+		return false;
+	}
+
+	public boolean DeletSql(String delsql) {
+
+		try {
+			PreparedStatement ps = conn.prepareStatement(upsql);
+			int result = ps.executeUpdate(delsql);
+			if (result > 0)
+				return true;
+		} catch (SQLException ex) {
+			Logger.getLogger(JobDatabaseManager.class.getName()).log(
+					Level.SEVERE, null, ex);
+		}
+		return false;
+	}
+
+
+	
+
+}

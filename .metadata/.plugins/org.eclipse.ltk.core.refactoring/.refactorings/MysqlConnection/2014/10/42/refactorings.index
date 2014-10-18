@@ -1,0 +1,9 @@
+1413516225991	Delete element
+1413516659004	Move compilation units
+1413516977020	Rename type 'MyJobWriter'
+1413517063210	Rename method 'write'
+1413518300806	Rename local variable 'user'
+1413595426464	Extract method 'ReOutputData'
+1413597710843	Extract method 'initialJobs'
+1413598072887	Rename type 'JobsInitialization'
+1413598104217	Rename local variable 'jobDB'

@@ -1,0 +1,87 @@
+package myJobDB;
+
+public class JobsInitialization {
+
+	private Jobs[] oldJobs= new Jobs[55];
+	
+	public JobsInitialization(){
+		initialOldJobs();
+		modifyOldJobs();
+	}
+	
+	public Jobs[] getOldJobs(){
+		return this.oldJobs;
+	}
+	private void modifyOldJobs() {
+
+		for(int i=17;i<47;i++){
+			oldJobs[i].setStatus("No Reply");
+		}
+		
+	}
+	public void initialOldJobs(){
+		
+		oldJobs[0]=new Jobs(1,"2014/08/04","Java Web Developer","Intelerad","http://www.intelerad.com/en/","https://intelerad.recruiterbox.com/jobs/fk0out","https://drive.google.com/file/d/0B1Wyg_LDZ9YSay1VSnJkVDEyT2s/view?usp=sharing","No Reply");
+		oldJobs[1]=new Jobs(2,"2014/08/04","Java Developer","TouchTunes","http://www.touchtunes.com/","https://home2.eease.adp.com/recruit2/?id=12973912&t=2","https://drive.google.com/file/d/0B1Wyg_LDZ9YSY0ZVSnBndVRqd1k/view?usp=sharing","No Reply");
+		oldJobs[2]=new Jobs(3,"2014/08/04","Front-End Web Developer","Gorill","http://www.gorillagroup.com/","http://www.gorillagroup.com/career/front-end-developer/","https://drive.google.com/file/d/0B1Wyg_LDZ9YSSENWeWtjTE04RzA/view?usp=sharing","No Reply");
+		oldJobs[3]=new Jobs(4,"2014/08/04","QA Analyst","Gorill","http://www.gorillagroup.com/","https://www.linkedin.com/jobs2/view/17970094?trk=jserp_job_details_text","https://drive.google.com/file/d/0B1Wyg_LDZ9YSODNsSU9DdkhfSTg/view?usp=sharing","No Reply");
+		oldJobs[4]=new Jobs(5,"2014/08/04","DEVELOPER - UI","Serti","http://www.serti.com/","http://consultation.serti.com/en/job/4544/?ref=rec","https://drive.google.com/file/d/0B1Wyg_LDZ9YSTzZacEx5S0pwWTg/view?usp=sharing","No Reply");
+		oldJobs[5]=new Jobs(6,"2014/08/04","QA Analyst","Guavus","http://www.guavus.com/","https://www.linkedin.com/jobs2/view/17586392?trk=jobs_home_click_jymbii&refId=","https://drive.google.com/file/d/0B1Wyg_LDZ9YSODd2ODlqbTZIRm8/view?usp=sharing","No Reply");
+		oldJobs[6]=new Jobs(7,"2014/08/05","Junior Big Data Developer","Guavus","http://www.guavus.com/","http://www.guavus.com/careers","https://drive.google.com/file/d/0B1Wyg_LDZ9YSODd2ODlqbTZIRm8/view?usp=sharing","No Reply");
+		oldJobs[7]=new Jobs(8,"2014/08/05","Software Developer","Serti","http://www.serti.com/","https://www.linkedin.com/jobs2/view/17734793?trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A2545067401407733533953%2CVSRPtargetId%3A17734793%2CVSRPcmpt%3Aprimary","https://drive.google.com/file/d/0B1Wyg_LDZ9YSTzZacEx5S0pwWTg/view?usp=sharing","No Reply");
+		oldJobs[8]=new Jobs(9,"2014/08/05","Quality Assurance Aanlyst","TECSYS","http://www.tecsys.com/","https://www.linkedin.com/jobs2/view/17816460","https://drive.google.com/file/d/0B1Wyg_LDZ9YSWWtYdWQyeTNXaEk/view?usp=sharing","No Reply");
+		oldJobs[9]=new Jobs(10,"2014/08/06","Software Test Engineer","Fortem","http://www.fortem.com/","https://www.linkedin.com/jobs2/view/11021196","https://drive.google.com/file/d/0B1Wyg_LDZ9YSbW5JMjhRQUFPdE0/view?usp=sharing","No Reply");
+		oldJobs[10]=new Jobs(11,"2014/08/06","QA Analyst","Fortem","http://www.fortem.com/","https://www.linkedin.com/jobs2/view/11021196","https://drive.google.com/file/d/0B1Wyg_LDZ9YSbW5JMjhRQUFPdE0/view?usp=sharing","No Reply");
+		oldJobs[11]=new Jobs(12,"2014/08/06","PROJECT MANAGER","Advanceit","http://www.advanceit.com/","http://www.advanceit.com/careers/","https://drive.google.com/file/d/0B1Wyg_LDZ9YSVmxrcnVHcDlMNDQ/view?usp=sharing","No Reply");
+		oldJobs[12]=new Jobs(13,"2014/08/11","Front End/Flex Developer","Guavus","http://www.guavus.com/","http://www.guavus.com/careers/","https://drive.google.com/file/d/0B1Wyg_LDZ9YSWFNoVXNsc3JIcDA/view?usp=sharing","No Reply");
+		oldJobs[13]=new Jobs(14,"2014/08/12","Web Application Developer","SILANIS","http://www.silanis.com/","https://my.concordia.ca/psp/upprpr9/EMPLOYEE/EMPL/s/WEBLIB_CONCORD.CU_SIS_INFO.FieldFormula.IScript_ORBIS_CD?FolderPath=PORTAL_ROOT_OBJECT.CU_STUDENT_REQUESTS.CU_ORBIS_CD&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder","https://drive.google.com/file/d/0B1Wyg_LDZ9YSaEZySnRXUzZkWWs/view?usp=sharing","No Reply");
+		oldJobs[14]=new Jobs(15,"2014/08/12","Java Developer","PRESAGIA CORP","http://www.presagia.com/","https://my.concordia.ca/psp/upprpr9/EMPLOYEE/EMPL/s/WEBLIB_CONCORD.CU_SIS_INFO.FieldFormula.IScript_ORBIS_CD?FolderPath=PORTAL_ROOT_OBJECT.CU_STUDENT_REQUESTS.CU_ORBIS_CD&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder","https://drive.google.com/file/d/0B1Wyg_LDZ9YSLUlVRWJWTDFpX0U/view?usp=sharing","No Reply");
+		oldJobs[15]=new Jobs(16,"2014/08/12"," Junior C++ Software Developer","OPAL-RT","http://www.OPAL-RT.com/","https://my.concordia.ca/psp/upprpr9/EMPLOYEE/EMPL/s/WEBLIB_CONCORD.CU_SIS_INFO.FieldFormula.IScript_ORBIS_CD?FolderPath=PORTAL_ROOT_OBJECT.CU_STUDENT_REQUESTS.CU_ORBIS_CD&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder","https://drive.google.com/file/d/0B1Wyg_LDZ9YSTmRWY0IxYU5VZlE/view?usp=sharing","No Reply");
+		oldJobs[16]=new Jobs(17,"2014/08/13","Web Developer","Nakisa","http://www.nakisa.com/","https://my.concordia.ca/psp/upprpr9/EMPLOYEE/EMPL/s/WEBLIB_CONCORD.CU_SIS_INFO.FieldFormula.IScript_ORBIS_CD?FolderPath=PORTAL_ROOT_OBJECT.CU_STUDENT_REQUESTS.CU_ORBIS_CD&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder","https://drive.google.com/file/d/0B1Wyg_LDZ9YSZkZHWUUwWWNyTVE/view?usp=sharing","No Reply");
+		oldJobs[17]=new Jobs(18,"2014/08/13","Software Analyst","Nakisa","http://www.nakisa.com/","https://my.concordia.ca/psp/upprpr9/EMPLOYEE/EMPL/s/WEBLIB_CONCORD.CU_SIS_INFO.FieldFormula.IScript_ORBIS_CD?FolderPath=PORTAL_ROOT_OBJECT.CU_STUDENT_REQUESTS.CU_ORBIS_CD&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder","https://drive.google.com/file/d/0B1Wyg_LDZ9YSZkZHWUUwWWNyTVE/view?usp=sharing","No Reply");
+		
+		oldJobs[18]=new Jobs(19,"2014/08/13","Java Software Developer","Nakisa","http://www.nakisa.com/","https://my.concordia.ca/psp/upprpr9/EMPLOYEE/EMPL/s/WEBLIB_CONCORD.CU_SIS_INFO.FieldFormula.IScript_ORBIS_CD?FolderPath=PORTAL_ROOT_OBJECT.CU_STUDENT_REQUESTS.CU_ORBIS_CD&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder","https://drive.google.com/file/d/0B1Wyg_LDZ9YSZkZHWUUwWWNyTVE/view?usp=sharing","No Reply");
+		oldJobs[19]=new Jobs(20,"2014/08/15","Software Engineer, Machine Learning","Faimdata","http://www.faimdata.com/","http://www.faimdata.com/careers.html","https://drive.google.com/file/d/0B1Wyg_LDZ9YSbzJIWXNlMXZDU0E/view?usp=sharing","No Reply");
+		oldJobs[20]=new Jobs(21,"2014/08/15","Software Engineer, Data Infrastructure","Faimdata","http://www.faimdata.com/","http://www.faimdata.com/careers.html","https://drive.google.com/file/d/0B1Wyg_LDZ9YSbzJIWXNlMXZDU0E/view?usp=sharing","No Reply");
+		oldJobs[21]=new Jobs(22,"2014/08/15","Web App Backend Engineer","Faimdata","http://www.faimdata.com/","http://www.faimdata.com/careers.html","https://drive.google.com/file/d/0B1Wyg_LDZ9YSbzJIWXNlMXZDU0E/view?usp=sharing","No Reply");
+		oldJobs[22]=new Jobs(23,"2014/08/15","Front-end Web Developer/UI Designer","Faimdata","http://www.faimdata.com/","http://www.faimdata.com/careers.html","https://drive.google.com/file/d/0B1Wyg_LDZ9YSbzJIWXNlMXZDU0E/view?usp=sharing","No Reply");
+		oldJobs[23]=new Jobs(24,"2014/08/19","Quality Assurance Developer","Kronos","http://www.kronos.com/","https://international-kronos.icims.com/jobs/9532/quality-assurance-developer/login?mobile=false&width=655&height=500&bga=true&needsRedirect=false","https://drive.google.com/file/d/0B1Wyg_LDZ9YSREJveDg2NHF1ZmM/view?usp=sharing","No Reply");
+		oldJobs[24]=new Jobs(25,"2014/08/19","Agile Software Developer","Ericsson","http://www.ericsson.com/","http://jobs.ericsson.com/job/Montreal-Agile-Software-Developer-QC/70069800/","https://drive.google.com/file/d/0B1Wyg_LDZ9YSUkg4eUtIX0tmUE0/view?usp=sharing","No Reply");
+		oldJobs[25]=new Jobs(26,"2014/08/19","Application Developer","Jesta I.S","http://www.jestais.com/","https://www.linkedin.com/jobs2/view/11070493?trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A2545067401408504299983%2CVSRPtargetId%3A11070493%2CVSRPcmpt%3Aprimary","https://drive.google.com/file/d/0B1Wyg_LDZ9YScUpncFd0ekRtWlU/view?usp=sharing","No Reply");
+		oldJobs[26]=new Jobs(27,"2014/08/21","Java Developer","Montreal Solution Centre","http://www.teksystems.com/services/global-services/global-delivery-network/montreal-solution-centre","http://www.teksystems.com/services/global-services/global-delivery-network/montreal-solution-centre","https://drive.google.com/file/d/0B1Wyg_LDZ9YSdkcwb1NIM09EN2c/view?usp=sharing","No Reply");
+		oldJobs[27]=new Jobs(28,"2014/08/21","Junior Project Manager","TEKsystems","http://www.teksystems.com/","http://www.simplyhired.com/job/jr-project-manager-job/teksystems-inc/sdcszwtpjh?cid=kaolpmcyckorekhpykcnijqvogwkasls","https://drive.google.com/file/d/0B1Wyg_LDZ9YSSDg5Yk5RcUR4dDQ/view?usp=sharing","No Reply");
+		oldJobs[28]=new Jobs(29,"2014/08/25","Web Developer","TOTi COR","http://toticorp.com/","http://toticorp.com/careers/","https://drive.google.com/file/d/0B1Wyg_LDZ9YSVlF0cXBCTzVxSk0/view?usp=sharing","No Reply");
+		oldJobs[29]=new Jobs(30,"2014/08/27","Data Analyst","GuestDriven","http://guestdriven.com/","https://www.linkedin.com/jobs2/view/10793752","https://drive.google.com/file/d/0B1Wyg_LDZ9YSQWFIbnBzTlBqWHc/view?usp=sharing","No Reply");
+		oldJobs[30]=new Jobs(31,"2014/08/27","Python Developer","Conversly","https://www.google.ca/","https://www.google.ca/","https://drive.google.com/file/d/0B1Wyg_LDZ9YSaG9YV0JZc054UHM/view?usp=sharing","No Reply");
+		oldJobs[31]=new Jobs(32,"2014/08/27","Database Developer","Toticorp,","http://toticorp.com/","http://toticorp.com/careers/","https://drive.google.com/file/d/0B1Wyg_LDZ9YSVlF0cXBCTzVxSk0/view?usp=sharing","No Reply");
+		oldJobs[32]=new Jobs(33,"2014/09/01","Java Software Developer","Nakisa","http://www.nakisa.com/","http://www.nakisa.com/careers/job-opportunities/job-150.htm#","https://drive.google.com/file/d/0B1Wyg_LDZ9YSQlZxbFRNTE5XdWc/view?usp=sharing","No Reply");
+		oldJobs[33]=new Jobs(34,"2014/09/01","Software Analyst","Nakisa","http://www.nakisa.com/","http://www.nakisa.com/careers/job-opportunities/job-129.htm#","https://drive.google.com/file/d/0B1Wyg_LDZ9YSVzZjS2YwdlJZOHc/view?usp=sharing","No Reply");
+		oldJobs[34]=new Jobs(35,"2014/09/01","Quality Assurance Specialist","Nakisa","http://www.nakisa.com/","http://www.nakisa.com/careers/job-opportunities/job-32.htm#","https://drive.google.com/file/d/0B1Wyg_LDZ9YSNGViNTNudVoydUk/view?usp=sharing","No Reply");
+		oldJobs[35]=new Jobs(36,"2014/09/01","Front End developer","Kronos ","http://www.kronos.com/","https://international-kronos.icims.com/jobs/9056/front-end-developer/job","https://drive.google.com/file/d/0B1Wyg_LDZ9YSZHllLUxCY2tFcUE/view?usp=sharing","No Reply");
+		oldJobs[36]=new Jobs(37,"2014/09/01","SW QA Developer","Kronos ","http://www.kronos.com/","https://international-kronos.icims.com/jobs/9059/sw-qa-developer/job","https://drive.google.com/file/d/0B1Wyg_LDZ9YSZHllLUxCY2tFcUE/view?usp=sharing","No Reply");
+		oldJobs[37]=new Jobs(38,"2014/09/01","Junior Java SW Developer","Kronos ","http://www.kronos.com/","https://international-kronos.icims.com/jobs/9526/junior-java-sw-developer/job","https://drive.google.com/file/d/0B1Wyg_LDZ9YSZHllLUxCY2tFcUE/view?usp=sharing","No Reply");
+		oldJobs[38]=new Jobs(39,"2014/09/01","Experienced Java Software Developer","Kronos ","http://www.kronos.com/","https://international-kronos.icims.com/jobs/9527/experienced-java-software-developer/job","https://drive.google.com/file/d/0B1Wyg_LDZ9YSZHllLUxCY2tFcUE/view?usp=sharing","No Reply");
+		oldJobs[39]=new Jobs(40,"2014/09/01","Data Scientist","Radialpoint","http://www.radialpoint.com/","http://ch.tbe.taleo.net/CH05/ats/careers/requisition.jsp?org=RADIALPOINT&cws=1&rid=787","https://drive.google.com/file/d/0B1Wyg_LDZ9YSMmZNUE5VR084SFU/view?usp=sharing","No Reply");
+		oldJobs[40]=new Jobs(41,"2014/09/01","Data Scientist","Netmail","http://www.netmail.com/","http://ch.tbe.taleo.net/CH05/ats/careers/requisition.jsp?org=RADIALPOINT&cws=1&rid=787","https://drive.google.com/file/d/0B1Wyg_LDZ9YSMmZNUE5VR084SFU/view?usp=sharing","No Reply");
+		oldJobs[41]=new Jobs(42,"2014/09/01","Java Web Developer","Gorilla","http://www.gorilla .com/","https://www.linkedin.com/jobs2/view/18478334?trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A2545067401409633333232%2CVSRPtargetId%3A18478334%2CVSRPcmpt%3Aprimary","https://drive.google.com/file/d/0B1Wyg_LDZ9YSYUk0ZVJQVUc2dEE/view?usp=sharing","No Reply");
+		oldJobs[42]=new Jobs(43,"2014/09/08","Junior Web UX Software Developer","Fuze HR","http://www.fuzehr.com/en_home.shtml","http://www.careerbuilder.ca/JobSeeker/Jobs/JobDetails.aspx?job_did=J3H35962V7RB7F4K4FN&siteid=sep_cbc002","https://drive.google.com/file/d/0B1Wyg_LDZ9YSMVNHbFdGaEJubW8/view?usp=sharing","No Reply");
+		oldJobs[43]=new Jobs(44,"2014/09/08","Java Software Developer","FCDI Corporation ","http://www.cdicorp.com/","http://www.careerbuilder.ca/ca/jobseeker/jobs/jobdetails.aspx?je=myrec&Job_DID=JHS0BP5YC1Z67PVTZ92&APath=1.32.0.0.0&IPATH=JEJECRA","https://drive.google.com/file/d/0B1Wyg_LDZ9YSUkg4eUtIX0tmUE0/view?usp=sharing","No Reply");
+		oldJobs[44]=new Jobs(45,"2014/09/08","Web Developer","Selective Few","http://www.selectivefew.com","http://www.techvibes.com/job/web-developer","https://drive.google.com/file/d/0B1Wyg_LDZ9YSUkg4eUtIX0tmUE0/view?usp=sharing","No Reply");
+		oldJobs[45]=new Jobs(46,"2014/09/08","QA Analyst","Groom & Associes","http://www.groomassocies.com/","https://www.linkedin.com/jobs2/view/19262002?trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A2545067401410233980703%2CVSRPtargetId%3A19262002%2CVSRPcmpt%3Aprimary","https://drive.google.com/file/d/0B1Wyg_LDZ9YSUkg4eUtIX0tmUE0/view?usp=sharing","No Reply");
+		oldJobs[46]=new Jobs(47,"2014/09/08","Java Web Front-end developer","Semeon ","www.semeon.com/en/","https://www.linkedin.com/jobs2/view/11082751?trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A2545067401410233980703%2CVSRPtargetId%3A11082751%2CVSRPcmpt%3Aprimary","https://drive.google.com/file/d/0B1Wyg_LDZ9YSUkg4eUtIX0tmUE0/view?usp=sharing","No Reply");
+		oldJobs[47]=new Jobs(48,"2014/09/10","Software Developer - Front End","Abilis Solutions","http://www.abilis.ca/cms/","http://abilis.ca/cms/careers/positions/front_end_software_developer#.VBEFDPldXrg","https://drive.google.com/file/d/0B1Wyg_LDZ9YSUkg4eUtIX0tmUE0/view?usp=sharing","No Reply");
+		oldJobs[48]=new Jobs(49,"2014/09/11","Front-End Developer","Acquisio","http://www.acquisio.com/","https://www.linkedin.com/jobs2/view/18674556?trk=eml-inmob_eoe&midToken=AQFjIRdwM2nZXw&fromEmail=fromEmail&ut=0GCwP-AngiISo1","https://drive.google.com/file/d/0B1Wyg_LDZ9YSbFlRTDROZ2NkOE0/view?usp=sharing","No Reply");
+		oldJobs[49]=new Jobs(50,"2014/10/03","Java Developer - 12 month contract","Acquisio","http://www.acquisio.com/","https://www.linkedin.com/jobs2/view/24349447?trk=jobs_biz_prem_srch","https://drive.google.com/file/d/0B1Wyg_LDZ9YSX2x4ZHVyOGZQTGs/view?usp=sharing","No Reply");
+		oldJobs[50]=new Jobs(51,"2014/10/03","UX designer/UI Integrator","Acquisio","http://www.acquisio.com/","https://www.linkedin.com/jobs2/view/24349447?trk=jobs_biz_prem_srch","https://drive.google.com/file/d/0B1Wyg_LDZ9YSX2x4ZHVyOGZQTGs/view?usp=sharing","No Reply");
+		oldJobs[51]=new Jobs(52,"2014/10/03","Big Data Software Developer","Wajam","http://www.wajam.com","https://www.linkedin.com/jobs2/view/19349709?trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A2545067401412383205637%","https://drive.google.com/file/d/0B1Wyg_LDZ9YSU3IwUlc4LWtfWlk/view?usp=sharing","No Reply");
+		oldJobs[52]=new Jobs(53,"2014/10/03","Web developer, front-end","Triton Digital","http://www.tritondigital.com/","https://www.linkedin.com/jobs2/view/24441485?trk=jobs_home_click_jymbii&refId=003c1452-fbc7-432f-bf5f-6d8d6cd42d40","https://drive.google.com/file/d/0B1Wyg_LDZ9YSRG5jbjlPNUJQalk/view?usp=sharing","No Reply");
+		oldJobs[53]=new Jobs(54,"2014/10/03","Intermediate Java Developer","Yellow Pages Group","http://jobs.ypg.com/","http://jobs.ypg.com/ca%2Fmontreal%2Fit%2Fjobid6287929-intermediate-java-developer-jobs?src=LinkedIn","https://drive.google.com/file/d/0B1Wyg_LDZ9YSU3IwUlc4LWtfWlk/view?usp=sharing","No Reply");
+		oldJobs[54]=new Jobs(55,"2014/10/14","Java Developer","CiM Maintenance","http://cimmaintenance.com/","https://www.linkedin.com/jobs2/view/11137268?trk=vsrp_jobs_res_name&trkInfo=VSRPsearchId%3A2545067401413259013560%2CVSRPtargetId%3A11137268%2CVSRPcmpt%3Aprimary","https://drive.google.com/file/d/0B1Wyg_LDZ9YSNEdDdVRIOUNielk/view?usp=sharing","No Reply");
+
+	
+	
+	
+	}
+	
+	
+}

@@ -1,0 +1,110 @@
+package main;
+
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+
+import myJobDB.*;
+
+public class Main {
+
+	static JobsDatabase jobDB = new JobsDatabase();
+	static JobDatabaseManager jobDBM = new JobDatabaseManager();
+	
+	public static void main(String[] args) {
+
+		
+		jobDBM.ConnectMysql();		
+		
+		/* Not to execute unless you are allowed
+		initialJobs();
+		updateOldJobs();
+		*/ 
+		
+		String[] jobInfo = getInfo();
+		JobsDatabase.insertNewJobs(jobDBM,jobInfo);
+		
+		//Refuse,Rejected,In Process
+		//updateNewJob(55,"In Process");
+		
+		try {
+			jobDBM.CutConnection();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//reOutputData(oldJob);
+
+	}
+
+	
+
+	private static String[] getInfo() {
+		String[] jobInfo = new String[5];
+		//	title,company,website,description,attachment;
+		
+		jobInfo[0]="Developper";
+		jobInfo[1]="Freemanav";
+		jobInfo[2]="http://freemanav-ca.com/";
+		jobInfo[3]="http://freemanav-ca.com/";
+		jobInfo[4]="https://drive.google.com/file/d/0B1Wyg_LDZ9YSaDFYX1dpS2JvcXNHblpyOXRpNmZHZjRxdUM4/view?usp=sharing";
+		
+		/*
+		jobInfo[0]="Front-End Web Developper";
+		jobInfo[1]="Vigilant Global";
+		jobInfo[2]="www.vigilantglobal.com";
+		jobInfo[3]="http://www.vigilantglobal.com/en/careers/web-application-developer";
+		jobInfo[4]="https://drive.google.com/file/d/0B1Wyg_LDZ9YSU3IwUlc4LWtfWlk/view?usp=sharing";
+		*/
+		
+		return jobInfo;
+	}
+
+
+
+	private static void initialJobs() {
+		jobDBM.DeletSql("truncate table linzhu1989.jobs");
+		JobsDatabase oldJob = new JobsDatabase();
+		oldJob.initialOldJobs();
+		for(int i=0;i<oldJob.getOldJobs().length;i++){
+			jobDBM.InsertSql(oldJob.getOldJobs()[i]);
+		}
+	}
+	
+	@SuppressWarnings("unused")
+	private static void updateNewJob(int ID,String newStatus) {
+		JobsDatabase.updateJobStatus(jobDBM, newStatus, Integer.toString(ID));
+	}
+	
+	@SuppressWarnings("unused")
+	private static void updateOldJobs() {
+		JobsDatabase oldJob = new JobsDatabase();
+		int[] refuseSet = {31};
+		int[] rejectedSet = {12,29,32};
+		int[] inProcessSet = {49,50,51};
+		
+		if(refuseSet.length>0){
+			for(int i=0;i<refuseSet.length;i++){
+				JobsDatabase.updateJobStatus(jobDBM, "Refuse", Integer.toString(refuseSet[i]));
+			}
+		}
+		if(rejectedSet.length>0){
+			for(int i=0;i<rejectedSet.length;i++){
+				JobsDatabase.updateJobStatus(jobDBM, "Rejected", Integer.toString(rejectedSet[i]));
+			}
+		}
+		if(inProcessSet.length>0){
+			for(int i=0;i<inProcessSet.length;i++){
+				JobsDatabase.updateJobStatus(jobDBM, "In Process", Integer.toString(inProcessSet[i]));
+			}
+		}
+		
+
+	}
+
+	private static void reOutputData(JobsDatabase oldJob) {
+		for(int i=0;i<oldJob.getOldJobs().length;i++){
+			System.out.println("oldJobs["+i+"]=new Jobs("+oldJob.getOldJobs()[i].getId()+",\""+oldJob.getOldJobs()[i].getData()+"\",\""+oldJob.getOldJobs()[i].getTitle()+"\",\""+oldJob.getOldJobs()[i].getCompany()+"\",\""+oldJob.getOldJobs()[i].getWebsite()+"\",\""+oldJob.getOldJobs()[i].getDescription()+"\",\""+oldJob.getOldJobs()[i].getAttachment()+"\",\""+oldJob.getOldJobs()[i].getStatus()+"\");");
+		}
+	}
+
+}

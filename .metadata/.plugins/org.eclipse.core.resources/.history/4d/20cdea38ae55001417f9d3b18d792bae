@@ -1,0 +1,10 @@
+package myJobDB;
+
+public class JobDatabaseManager {
+	
+	
+	public JobDatabaseManager(){
+		
+	}
+
+}

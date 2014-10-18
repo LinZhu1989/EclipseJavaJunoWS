@@ -1,0 +1,164 @@
+package myJobDB;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import main.CommonData;
+
+public class JobDatabaseManager {
+
+	private Connection conn;
+	private String insql;
+	private String upsql;
+	private String delsql;
+	private String sql = "select * from user";
+	private String name;
+	public DatabaseLogWriter logger;
+	private ResultSet rs = null;
+
+	public JobDatabaseManager() {
+		logger=new DatabaseLogWriter("Job");
+	}
+
+	public Connection ConnectMysql() {
+		try {
+			Class.forName(CommonData.connect_drivename);
+			conn = DriverManager.getConnection(CommonData.connect_url,
+					CommonData.connect_name, CommonData.connect_password);
+			if (!conn.isClosed()) {
+				logger.appendWrite("Succeeded connecting to the Database!");
+			} else {
+				logger.appendWrite("Falled connecting to the Database!");
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return conn;
+	}
+
+	public void CutConnection() throws SQLException {
+		try {
+			if (rs != null)
+				;
+			if (conn != null)
+				;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null)
+			rs.close();
+			if (conn != null)
+			conn.close();
+		}
+	}
+
+	
+	
+	// 插入、删除、更新的方法是一样的，不一样的是数据库参数
+	public boolean InsertSql(Jobs data) {
+		try {
+
+			insql = "insert into linzhu1989.jobs(id,data,title,company,website,description,attachment,status) values(?,?,?,?,?,?,?,?)";
+			PreparedStatement ps = conn.prepareStatement(insql);
+			ps.setInt(1, data.getId());
+			ps.setString(2, data.getData());
+			ps.setString(3, data.getTitle());
+			ps.setString(4, data.getCompany());
+			ps.setString(5, data.getWebsite());
+			ps.setString(6, data.getDescription());
+			ps.setString(7, data.getAttachment());
+			ps.setString(8, data.getStatus());
+			int result = ps.executeUpdate();
+			
+			if (result > 0){
+				logger.appendWrite("Successfully insert Job "+data.getId()+": "+data.getTitle()+" @ "+ data.getCompany());
+				return true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	
+	
+	
+	// 与其他操作相比较，查询语句在查询后需要一个查询结果集（ResultSet）来保存查询结果
+	public ArrayList<String[]> SelectSql(String sql) {
+		ArrayList<String[]> result = new ArrayList<String[]>();
+	
+		
+/*		private int id;
+		private String data = "";
+		private String title = "";
+		private String company = "";
+		private String website = "";
+		private String description = "";
+		private String attachment = "";
+		private String status = "";*/
+		try {
+			Statement statement = conn.createStatement();
+			rs = statement.executeQuery(sql);
+			logger.appendWrite("Start to select Jobs:");
+			while (rs.next()) {
+				String[] temp=new String[8];
+				System.out.println(rs.getString("id") + rs.getString("data") + rs.getString("title")+ rs.getString("company") + rs.getString("website")+ rs.getString("description") + rs.getString("attachment")+ rs.getString("status"));	
+				logger.appendWrite("Successfully select Job ID="+rs.getString("id") +"  "+ rs.getString("title") +" @ "+ rs.getString("company")+ "  Applied on: "+rs.getString("data")+ " Status: "+rs.getString("status"));
+				temp[0]=rs.getString("id") ;
+				temp[1]=rs.getString("data");
+				temp[2]=rs.getString("title");
+				temp[3]=rs.getString("company") ;
+				temp[4]=rs.getString("website");
+				temp[5]=rs.getString("description") ;
+				temp[6]=rs.getString("attachment");
+				temp[7]=rs.getString("status");
+				result.add(temp);
+			}
+			logger.appendWrite("End of selecting Jobs:");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+
+	}
+
+	public boolean UpdateSql(String upsql) {
+		try {
+			logger.appendWrite("Start to update Job ...");
+			PreparedStatement ps = conn.prepareStatement(upsql);
+			int result = ps.executeUpdate();// 返回行数或者0
+			logger.appendWrite("End of updating Job ...");
+			if (result > 0)
+				return true;
+		} catch (SQLException ex) {
+			Logger.getLogger(JobDatabaseManager.class.getName()).log(
+					Level.SEVERE, null, ex);
+		}
+		return false;
+	}
+
+	public boolean DeletSql(String delsql) {
+
+		try {
+			PreparedStatement ps = conn.prepareStatement(delsql);
+			int result = ps.executeUpdate(delsql);
+			if (result > 0)
+				return true;
+		} catch (SQLException ex) {
+			
+		}
+		return false;
+	}
+
+
+	
+
+}

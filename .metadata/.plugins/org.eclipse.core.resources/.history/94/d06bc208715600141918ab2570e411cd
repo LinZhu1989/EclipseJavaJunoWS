@@ -1,0 +1,50 @@
+package main;
+
+import java.text.SimpleDateFormat;
+
+import myJobDB.*;
+
+public class Main {
+
+	static JobsDatabase jobDB = new JobsDatabase();
+	static JobDatabaseManager jobDBM = new JobDatabaseManager();
+	
+	public static void main(String[] args) {
+
+		
+		jobDBM.ConnectMysql();		
+		String[] jobInfo = new String[5];
+		jobInfo[0]="New Job2";
+		jobInfo[1]="XXX";
+		jobInfo[2]="XX";
+		jobInfo[3]="XXX";
+		jobInfo[4]="XXX";
+		JobsDatabase.insertNewJobs(jobDBM,jobInfo);
+		
+		
+		
+		
+		//initialJobs(jobDB);
+		//reOutputData(oldJob);
+		//jobDB.InsertSql(job1);
+
+	}
+
+	
+
+	private static void initialJobs(JobDatabaseManager jobDBM) {
+		jobDBM.DeletSql("truncate table linzhu1989.jobs");
+		JobsDatabase oldJob = new JobsDatabase();
+		oldJob.initialOldJobs();
+		for(int i=0;i<oldJob.getOldJobs().length;i++){
+			jobDBM.InsertSql(oldJob.getOldJobs()[i]);
+		}
+	}
+
+	private static void reOutputData(JobsDatabase oldJob) {
+		for(int i=0;i<oldJob.getOldJobs().length;i++){
+			System.out.println("oldJobs["+i+"]=new Jobs("+oldJob.getOldJobs()[i].getId()+",\""+oldJob.getOldJobs()[i].getData()+"\",\""+oldJob.getOldJobs()[i].getTitle()+"\",\""+oldJob.getOldJobs()[i].getCompany()+"\",\""+oldJob.getOldJobs()[i].getWebsite()+"\",\""+oldJob.getOldJobs()[i].getDescription()+"\",\""+oldJob.getOldJobs()[i].getAttachment()+"\",\""+oldJob.getOldJobs()[i].getStatus()+"\");");
+		}
+	}
+
+}

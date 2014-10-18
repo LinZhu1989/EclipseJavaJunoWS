@@ -1,0 +1,109 @@
+
+[ 2014-10-17 11:19:35.166 ] == >> Succeeded connecting to the Database!
+[ 2014-10-17 11:19:35.247 ] == >> Successfully insert Job 1: Java Web Developer @ Intelerad
+[ 2014-10-17 11:19:35.251 ] == >> Successfully insert Job 2: Java Developer @ TouchTunes
+[ 2014-10-17 11:19:35.256 ] == >> Successfully insert Job 3: Front-End Web Developer @ Gorill
+[ 2014-10-17 11:19:35.260 ] == >> Successfully insert Job 4: QA Analyst @ Gorill
+[ 2014-10-17 11:19:35.263 ] == >> Successfully insert Job 5: DEVELOPER - UI @ Serti
+[ 2014-10-17 11:19:35.268 ] == >> Successfully insert Job 6: QA Analyst @ Guavus
+[ 2014-10-17 11:19:35.272 ] == >> Successfully insert Job 7: Junior Big Data Developer @ Guavus
+[ 2014-10-17 11:19:35.276 ] == >> Successfully insert Job 8: Software Developer @ Serti
+[ 2014-10-17 11:19:35.280 ] == >> Successfully insert Job 9: Quality Assurance Aanlyst @ TECSYS
+[ 2014-10-17 11:19:35.294 ] == >> Successfully insert Job 10: Software Test Engineer @ Fortem
+[ 2014-10-17 11:19:35.298 ] == >> Successfully insert Job 11: QA Analyst @ Fortem
+[ 2014-10-17 11:19:35.302 ] == >> Successfully insert Job 12: PROJECT MANAGER @ Advanceit
+[ 2014-10-17 11:19:35.310 ] == >> Successfully insert Job 13: Front End/Flex Developer @ Guavus
+[ 2014-10-17 11:19:35.315 ] == >> Successfully insert Job 14: Web Application Developer @ SILANIS
+[ 2014-10-17 11:19:35.319 ] == >> Successfully insert Job 15: Java Developer @ PRESAGIA CORP
+[ 2014-10-17 11:19:35.325 ] == >> Successfully insert Job 16:  Junior C++ Software Developer @ OPAL-RT
+[ 2014-10-17 11:19:35.328 ] == >> Successfully insert Job 17: Web Developer @ Nakisa
+[ 2014-10-17 11:19:35.333 ] == >> Successfully insert Job 18: Software Analyst @ Nakisa
+[ 2014-10-17 11:19:35.337 ] == >> Successfully insert Job 19: Java Software Developer @ Nakisa
+[ 2014-10-17 11:19:35.341 ] == >> Successfully insert Job 20: Software Engineer, Machine Learning @ Faimdata
+[ 2014-10-17 11:19:35.345 ] == >> Successfully insert Job 21: Software Engineer, Data Infrastructure @ Faimdata
+[ 2014-10-17 11:19:35.349 ] == >> Successfully insert Job 22: Web App Backend Engineer @ Faimdata
+[ 2014-10-17 11:19:35.353 ] == >> Successfully insert Job 23: Front-end Web Developer/UI Designer @ Faimdata
+[ 2014-10-17 11:19:35.357 ] == >> Successfully insert Job 24: Quality Assurance Developer @ Kronos
+[ 2014-10-17 11:19:35.361 ] == >> Successfully insert Job 25: Agile Software Developer @ Ericsson
+[ 2014-10-17 11:19:35.365 ] == >> Successfully insert Job 26: Application Developer @ Jesta I.S
+[ 2014-10-17 11:19:35.369 ] == >> Successfully insert Job 27: Java Developer @ Montreal Solution Centre
+[ 2014-10-17 11:19:35.374 ] == >> Successfully insert Job 28: Junior Project Manager @ TEKsystems
+[ 2014-10-17 11:19:35.378 ] == >> Successfully insert Job 29: Web Developer @ TOTi COR
+[ 2014-10-17 11:19:35.381 ] == >> Successfully insert Job 30: Data Analyst @ GuestDriven
+[ 2014-10-17 11:19:35.385 ] == >> Successfully insert Job 31: Python Developer @ Conversly
+[ 2014-10-17 11:19:35.401 ] == >> Successfully insert Job 32: Database Developer @ Toticorp,
+[ 2014-10-17 11:19:35.427 ] == >> Successfully insert Job 33: Java Software Developer @ Nakisa
+[ 2014-10-17 11:19:35.432 ] == >> Successfully insert Job 34: Software Analyst @ Nakisa
+[ 2014-10-17 11:19:35.435 ] == >> Successfully insert Job 35: Quality Assurance Specialist @ Nakisa
+[ 2014-10-17 11:19:35.439 ] == >> Successfully insert Job 36: Front End developer @ Kronos 
+[ 2014-10-17 11:19:35.455 ] == >> Successfully insert Job 37: SW QA Developer @ Kronos 
+[ 2014-10-17 11:19:35.460 ] == >> Successfully insert Job 38: Junior Java SW Developer @ Kronos 
+[ 2014-10-17 11:19:35.464 ] == >> Successfully insert Job 39: Experienced Java Software Developer @ Kronos 
+[ 2014-10-17 11:19:35.468 ] == >> Successfully insert Job 40: Data Scientist @ Radialpoint
+[ 2014-10-17 11:19:35.472 ] == >> Successfully insert Job 41: Data Scientist @ Netmail
+[ 2014-10-17 11:19:35.476 ] == >> Successfully insert Job 42: Java Web Developer @ Gorilla
+[ 2014-10-17 11:19:35.480 ] == >> Successfully insert Job 43: Junior Web UX Software Developer @ Fuze HR
+[ 2014-10-17 11:19:35.484 ] == >> Successfully insert Job 44: Java Software Developer @ FCDI Corporation 
+[ 2014-10-17 11:19:35.500 ] == >> Successfully insert Job 45: Web Developer @ Selective Few
+[ 2014-10-17 11:19:35.504 ] == >> Successfully insert Job 46: QA Analyst @ Groom & Associes
+[ 2014-10-17 11:19:35.511 ] == >> Successfully insert Job 47: Java Web Front-end developer @ Semeon 
+[ 2014-10-17 11:19:35.515 ] == >> Successfully insert Job 48: Software Developer - Front End @ Abilis Solutions
+[ 2014-10-17 11:19:35.522 ] == >> Successfully insert Job 49: Front-End Developer @ Acquisio
+[ 2014-10-17 11:19:35.526 ] == >> Successfully insert Job 50: Java Developer - 12 month contract @ Acquisio
+[ 2014-10-17 11:19:35.529 ] == >> Successfully insert Job 51: UX designer/UI Integrator @ Acquisio
+[ 2014-10-17 11:19:35.544 ] == >> Successfully insert Job 52: Big Data Software Developer @ Wajam
+[ 2014-10-17 11:19:35.549 ] == >> Successfully insert Job 53: Web developer, front-end @ Triton Digital
+[ 2014-10-17 11:19:35.555 ] == >> Successfully insert Job 54: Intermediate Java Developer @ Yellow Pages Group
+[ 2014-10-17 11:19:35.559 ] == >> Successfully insert Job 55: Java Developer @ CiM Maintenance
+[ 2014-10-17 11:19:35.562 ] == >> Prepare to update Status of Job 31 to Refuse
+[ 2014-10-17 11:19:35.566 ] == >> Successfully update Job!
+[ 2014-10-17 11:19:35.568 ] == >> Prepare to update Status of Job 12 to Rejected
+[ 2014-10-17 11:19:35.573 ] == >> Successfully update Job!
+[ 2014-10-17 11:19:35.575 ] == >> Prepare to update Status of Job 29 to Rejected
+[ 2014-10-17 11:19:35.588 ] == >> Successfully update Job!
+[ 2014-10-17 11:19:35.591 ] == >> Prepare to update Status of Job 32 to Rejected
+[ 2014-10-17 11:19:35.595 ] == >> Successfully update Job!
+[ 2014-10-17 11:19:35.597 ] == >> Prepare to update Status of Job 49 to In Process
+[ 2014-10-17 11:19:35.601 ] == >> Successfully update Job!
+[ 2014-10-17 11:19:35.603 ] == >> Prepare to update Status of Job 50 to In Process
+[ 2014-10-17 11:19:35.607 ] == >> Successfully update Job!
+[ 2014-10-17 11:19:35.610 ] == >> Prepare to update Status of Job 51 to In Process
+[ 2014-10-17 11:19:35.614 ] == >> Successfully update Job!
+[ 2014-10-17 11:22:04.941 ] == >> Succeeded connecting to the Database!
+[ 2014-10-17 11:22:04.945 ] == >> Start to select Jobs:
+[ 2014-10-17 11:22:04.953 ] == >> Successfully select Job ID=55  Java Developer @ CiM Maintenance  Applied on: 2014-10-14 Status: No Reply
+[ 2014-10-17 11:22:04.956 ] == >> End of selecting Jobs:
+[ 2014-10-17 11:22:04.972 ] == >> Successfully insert Job 56: Front-End Web Developper @ Vigilant Global
+[ 2014-10-17 11:25:38.740 ] == >> Succeeded connecting to the Database!
+[ 2014-10-17 11:25:38.744 ] == >> Start to select Jobs:
+[ 2014-10-17 11:25:38.753 ] == >> Successfully select Job ID=56  Front-End Web Developper @ Vigilant Global  Applied on: 2014-10-17 Status: No Reply
+[ 2014-10-17 11:25:38.755 ] == >> End of selecting Jobs:
+[ 2014-10-17 11:25:38.770 ] == >> Successfully insert Job 57: Developper @ Freemanav
+[ 2014-10-17 11:30:49.349 ] == >> Succeeded connecting to the Database!
+[ 2014-10-17 11:30:49.353 ] == >> Start to select Jobs:
+[ 2014-10-17 11:30:49.361 ] == >> Successfully select Job ID=57  Developper @ Freemanav  Applied on: 2014-10-17 Status: No Reply
+[ 2014-10-17 11:30:49.364 ] == >> End of selecting Jobs:
+[ 2014-10-17 11:30:49.398 ] == >> Successfully insert Job 58: Software Developer @ Vigilant- Recrute/Action
+[ 2014-10-17 11:34:31.580 ] == >> Succeeded connecting to the Database!
+[ 2014-10-17 11:34:31.586 ] == >> Start to select Jobs:
+[ 2014-10-17 11:34:31.596 ] == >> Successfully select Job ID=58  Software Developer @ Vigilant- Recrute/Action  Applied on: 2014-10-17 Status: No Reply
+[ 2014-10-17 11:34:31.599 ] == >> End of selecting Jobs:
+[ 2014-10-17 11:34:31.614 ] == >> Successfully insert Job 59: Software Developer, Custom Development @ SAP
+[ 2014-10-17 11:34:43.50 ] == >> Succeeded connecting to the Database!
+[ 2014-10-17 11:34:43.54 ] == >> Start to select Jobs:
+[ 2014-10-17 11:34:43.63 ] == >> Successfully select Job ID=59  Software Developer, Custom Development @ SAP  Applied on: 2014-10-17 Status: No Reply
+[ 2014-10-17 11:34:43.66 ] == >> End of selecting Jobs:
+[ 2014-10-17 11:34:43.82 ] == >> Successfully insert Job 60: Intern - Developer Job @ SAP
+[ 2014-10-17 11:36:06.851 ] == >> Succeeded connecting to the Database!
+[ 2014-10-17 11:36:06.856 ] == >> Start to select Jobs:
+[ 2014-10-17 11:36:06.864 ] == >> Successfully select Job ID=60  Intern - Developer Job @ SAP  Applied on: 2014-10-17 Status: No Reply
+[ 2014-10-17 11:36:06.867 ] == >> End of selecting Jobs:
+[ 2014-10-17 11:36:06.922 ] == >> Prepare to update Status of Job 56 to In Process
+[ 2014-10-17 11:36:06.931 ] == >> Successfully update Job!
+[ 2014-10-17 11:36:06.936 ] == >> Prepare to update Status of Job 57 to In Process
+[ 2014-10-17 11:36:06.953 ] == >> Successfully update Job!
+[ 2014-10-17 11:36:18.263 ] == >> Succeeded connecting to the Database!
+[ 2014-10-17 11:36:18.267 ] == >> Prepare to update Status of Job 56 to In Process
+[ 2014-10-17 11:36:18.283 ] == >> Successfully update Job!
+[ 2014-10-17 11:36:18.285 ] == >> Prepare to update Status of Job 57 to In Process
+[ 2014-10-17 11:36:18.290 ] == >> Successfully update Job!

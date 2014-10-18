@@ -1,0 +1,90 @@
+package myJobDB;
+
+public class Jobs {// 内部类，其字段对应用来存放、提取数据库中的数据
+
+	private int id;
+	private String data = "";
+	private String title = "";
+	private String company = "";
+	private String website = "";
+	private String description = "";
+	private String attachment = "";
+	private String status = "";
+	
+	public Jobs(int i, String s, String s2, String s3,
+			String s4, String s5, String s6, String s7) {
+		this.setId(i);
+		this.setTitle(s);
+		this.setCompany(s2);
+		this.setWebsite(s3);
+		this.setDescription(s4);
+		this.setAttachment(s5);
+		this.setStatus(s6);
+		this.setData(s7);		
+	}
+
+	public void setId(int jobid) {
+		this.id = jobid;
+	}
+
+	public void setData(String jobdata) {
+		this.data = jobdata;
+	}
+	
+	public void setTitle(String jobtitle) {
+		this.title = jobtitle;
+	}
+	
+	public void setCompany(String jobcompany) {
+		this.company = jobcompany;
+	}
+	
+	public void setWebsite(String jobwebsite) {
+		this.website = jobwebsite;
+	}
+	
+	public void setDescription(String jobdescription) {
+		this.description = jobdescription;
+	}
+	
+	public void setAttachment(String jobattachment) {
+		this.attachment = jobattachment;
+	}
+	
+	public void setStatus(String jobstatus) {
+		this.status = jobstatus;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public String getData() {
+		return data;
+	}
+	
+	public String getTitle() {
+		return title;
+	}
+	
+	public String getCompany() {
+		return company;
+	}
+	
+	public String getWebsite() {
+		return website;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public String getAttachment() {
+		return attachment;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+}

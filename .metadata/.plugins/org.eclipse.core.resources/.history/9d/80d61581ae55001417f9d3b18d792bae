@@ -1,0 +1,38 @@
+package myJobDB;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import main.CommonData;
+
+public class JobDatabaseManager {
+	
+	private Connection conn;
+	public JobDatabaseManager(){
+		
+	}
+
+	
+	public void GetConnection() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("Successful Load MySQL Driver!");
+		} catch (ClassNotFoundException e1) {
+			System.out.println("[Error] Cannot find MySQL Driver!");
+			e1.printStackTrace();
+		}
+
+		try {
+			conn = DriverManager.getConnection(CommonData.connect_url, CommonData.connect_name, CommonData.connect_password);
+			// 创建一个Statement对象
+			Statement stmt = conn.createStatement(); // 创建Statement对象
+			System.out.print("成功连接到数据库！");
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+}
